@@ -43,6 +43,10 @@ app.use(
   })
 );
 
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", db: "connected" });
+});
+
 // ===== Routes =====
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
