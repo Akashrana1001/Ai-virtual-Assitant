@@ -1,0 +1,13 @@
+// middlewares/rateLimiter.js
+import rateLimit from "express-rate-limit";
+
+export const aiRateLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 10, // max 10 requests per minute per IP
+  message: {
+    success: false,
+    message: "Too many requests, please try again later.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
